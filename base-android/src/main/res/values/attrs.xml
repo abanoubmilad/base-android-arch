@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ToolbarView">
+        <attr name="showLeftButton" format="boolean" />
+        <attr name="leftButtonTint" format="reference" />
+        <attr name="leftButton" format="reference" />
+        <attr name="textColor" format="reference" />
+        <attr name="barColor" format="reference" />
+        <attr name="title" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="InputText">
+        <attr name="state_error" format="boolean" />
+    </declare-styleable>
+
+</resources>

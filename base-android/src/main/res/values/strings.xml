@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">base-arch-android</string>
+    <string name="base_arch_module_check_connection">Please check your connection and try again.</string>
+
+</resources>

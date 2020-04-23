@@ -1,0 +1,17 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.me.base_android">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application>
+        <service
+            android:name="com.novoda.merlin.MerlinService"
+            android:exported="false" />
+
+        <activity
+            android:name="com.me.base_android.cropper.PhotoCropperActivity"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+    </application>
+</manifest>

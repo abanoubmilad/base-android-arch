@@ -1,0 +1,125 @@
+<resources>
+    // font styles
+
+    <style name="regular" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="bold" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="medium" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="regular.10">
+        <item name="android:textSize">@dimen/base_360_dim_10_sp</item>
+    </style>
+
+    <style name="regular.11">
+        <item name="android:textSize">@dimen/base_360_dim_11_sp</item>
+    </style>
+
+    <style name="regular.12">
+        <item name="android:textSize">@dimen/base_360_dim_12_sp</item>
+    </style>
+
+    <style name="regular.13">
+        <item name="android:textSize">@dimen/base_360_dim_13_sp</item>
+    </style>
+
+    <style name="regular.14">
+        <item name="android:textSize">@dimen/base_360_dim_14_sp</item>
+    </style>
+
+    <style name="regular.15">
+        <item name="android:textSize">@dimen/base_360_dim_15_sp</item>
+    </style>
+
+    <style name="regular.16">
+        <item name="android:textSize">@dimen/base_360_dim_16_sp</item>
+    </style>
+
+    <style name="regular.17">
+        <item name="android:textSize">@dimen/base_360_dim_17_sp</item>
+    </style>
+
+    <style name="regular.18">
+        <item name="android:textSize">@dimen/base_360_dim_18_sp</item>
+    </style>
+
+    <style name="medium.10">
+        <item name="android:textSize">@dimen/base_360_dim_10_sp</item>
+    </style>
+
+    <style name="medium.11">
+        <item name="android:textSize">@dimen/base_360_dim_11_sp</item>
+    </style>
+
+    <style name="medium.12">
+        <item name="android:textSize">@dimen/base_360_dim_12_sp</item>
+    </style>
+
+    <style name="medium.13">
+        <item name="android:textSize">@dimen/base_360_dim_13_sp</item>
+    </style>
+
+    <style name="medium.14">
+        <item name="android:textSize">@dimen/base_360_dim_14_sp</item>
+    </style>
+
+    <style name="medium.15">
+        <item name="android:textSize">@dimen/base_360_dim_15_sp</item>
+    </style>
+
+    <style name="medium.16">
+        <item name="android:textSize">@dimen/base_360_dim_16_sp</item>
+    </style>
+
+    <style name="medium.17">
+        <item name="android:textSize">@dimen/base_360_dim_17_sp</item>
+    </style>
+
+    <style name="medium.18">
+        <item name="android:textSize">@dimen/base_360_dim_18_sp</item>
+    </style>
+
+    <style name="bold.10">
+        <item name="android:textSize">@dimen/base_360_dim_10_sp</item>
+    </style>
+
+    <style name="bold.11">
+        <item name="android:textSize">@dimen/base_360_dim_11_sp</item>
+    </style>
+
+    <style name="bold.12">
+        <item name="android:textSize">@dimen/base_360_dim_12_sp</item>
+    </style>
+
+    <style name="bold.13">
+        <item name="android:textSize">@dimen/base_360_dim_13_sp</item>
+    </style>
+
+    <style name="bold.14">
+        <item name="android:textSize">@dimen/base_360_dim_14_sp</item>
+    </style>
+
+    <style name="bold.15">
+        <item name="android:textSize">@dimen/base_360_dim_15_sp</item>
+    </style>
+
+    <style name="bold.16">
+        <item name="android:textSize">@dimen/base_360_dim_16_sp</item>
+    </style>
+
+    <style name="bold.17">
+        <item name="android:textSize">@dimen/base_360_dim_17_sp</item>
+    </style>
+
+    <style name="bold.18">
+        <item name="android:textSize">@dimen/base_360_dim_18_sp</item>
+    </style>
+</resources>

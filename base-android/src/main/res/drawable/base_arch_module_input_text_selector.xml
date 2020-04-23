@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:drawable="@drawable/base_arch_module_input_text_active" android:state_focused="true" app:state_error="false" />
+    <item android:drawable="@drawable/base_arch_module_input_text_normal" android:state_focused="false" app:state_error="false" />
+    <item android:drawable="@drawable/base_arch_module_input_text_error" android:state_focused="false" app:state_error="true" />
+    <item android:drawable="@drawable/base_arch_module_input_text_error" android:state_focused="true" app:state_error="true" />
+</selector>

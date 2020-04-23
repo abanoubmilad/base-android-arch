@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cookie"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/base_arch_module_cookiebar_error_red"
+    android:orientation="horizontal"
+    android:paddingTop="20dp">
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="14dp"
+        android:textColor="@color/base_arch_module_cookiebar_text_color"
+        android:textSize="@dimen/base_360_dim_15_sp"
+        tools:text="check connection" />
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/base_arch_module_cookiebar_text_color"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btn_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+</LinearLayout>
