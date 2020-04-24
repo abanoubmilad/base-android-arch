@@ -1,8 +1,6 @@
 package com.me.demo.formscreen
 
-import android.os.Bundle
-import android.view.View
-import com.me.base_android.nav.NavFragment
+import com.me.baseAndroid.nav.NavFragment
 import com.me.demo.R
 import com.me.demo.homescreen.Title
 import kotlinx.android.synthetic.main.fragment_register.*
@@ -14,21 +12,20 @@ import kotlinx.android.synthetic.main.fragment_register.*
 class Register3 : NavFragment() {
     override val layoutId = R.layout.fragment_register3
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreated() {
 
         signup_btn.setOnClickListener {
-            navigate(Registered())
+            INav?.navigate(Registered())
         }
         about_btn.setOnClickListener {
-            navigate(0, Title())
+            INav?.navigate(0, Title())
 
         }
     }
 
 
-    override fun onVisible() {
-        super.onVisible()
+    override fun onVisibleAgain() {
+        super.onVisibleAgain()
 
         showCookieBar("Register 3")
     }

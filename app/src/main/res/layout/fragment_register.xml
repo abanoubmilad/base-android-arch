@@ -28,7 +28,7 @@
         tools:context="com.me.demo.formscreen.Register"
         tools:layout_editor_absoluteY="81dp">
 
-        <com.me.base_android.view.ToolbarView
+        <com.me.baseAndroid.view.ToolbarView
             android:id="@+id/toolbarView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

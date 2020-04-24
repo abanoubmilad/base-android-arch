@@ -1,8 +1,6 @@
 package com.me.demo.homescreen
 
-import android.os.Bundle
-import android.view.View
-import com.me.base_android.nav.NavFragment
+import com.me.baseAndroid.nav.NavFragment
 import com.me.demo.R
 
 /**
@@ -12,14 +10,13 @@ class About3 : NavFragment() {
     override val layoutId = R.layout.fragment_about3
 
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreated() {
 
     }
 
 
-    override fun onVisible() {
-        super.onVisible()
+    override fun onVisibleAgain() {
+        super.onVisibleAgain()
 
         showCookieBar("about 3")
     }

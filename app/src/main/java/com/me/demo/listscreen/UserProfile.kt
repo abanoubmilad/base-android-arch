@@ -1,8 +1,6 @@
 package com.me.demo.listscreen
 
-import android.os.Bundle
-import android.view.View
-import com.me.base_android.nav.NavFragment
+import com.me.baseAndroid.nav.NavFragment
 import com.me.demo.R
 import com.me.demo.listscreen.MyAdapter.Companion.USERNAME_KEY
 import kotlinx.android.synthetic.main.fragment_user_profile.*
@@ -14,16 +12,15 @@ import kotlinx.android.synthetic.main.fragment_user_profile.*
 class UserProfile : NavFragment() {
     override val layoutId = R.layout.fragment_user_profile
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreated() {
 
         val name = arguments?.getString(USERNAME_KEY) ?: "Ali Connors"
         profile_user_name.text = name
     }
 
 
-    override fun onVisible() {
-        super.onVisible()
+    override fun onVisibleAgain() {
+        super.onVisibleAgain()
 
         showCookieBar("User profile")
     }

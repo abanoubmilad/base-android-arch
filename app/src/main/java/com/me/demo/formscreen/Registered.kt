@@ -1,6 +1,6 @@
 package com.me.demo.formscreen
 
-import com.me.base_android.nav.NavFragment
+import com.me.baseAndroid.nav.NavFragment
 import com.me.demo.R
 
 /**
@@ -10,8 +10,13 @@ class Registered : NavFragment() {
     override val layoutId = R.layout.fragment_registered
 
 
-    override fun onVisible() {
-        super.onVisible()
+    override fun onCreated() {
+
+
+    }
+
+    override fun onVisibleAgain() {
+        super.onVisibleAgain()
 
         showCookieBar("Registered")
     }

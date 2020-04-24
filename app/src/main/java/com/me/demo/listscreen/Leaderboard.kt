@@ -1,6 +1,5 @@
 package com.me.demo.listscreen
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
-import com.me.base_android.nav.HomeNavActivity
-import com.me.base_android.nav.NavFragment
-import com.me.base_android.view.activity
+import com.me.baseAndroid.nav.INav
+import com.me.baseAndroid.nav.NavFragment
+import com.me.baseAndroid.view.activity
 import com.me.demo.R
 import kotlinx.android.synthetic.main.fragment_leaderboard.*
 
@@ -21,8 +20,7 @@ class Leaderboard : NavFragment() {
     override val layoutId = R.layout.fragment_leaderboard
 
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreated() {
 
         val viewAdapter = MyAdapter(Array(100) { "Person ${it + 1}" })
 
@@ -38,8 +36,8 @@ class Leaderboard : NavFragment() {
 
     }
 
-    override fun onVisible() {
-        super.onVisible()
+    override fun onVisibleAgain() {
+        super.onVisibleAgain()
 
         showCookieBar("leadership")
     }
@@ -81,7 +79,7 @@ class MyAdapter(private val myDataset: Array<String>) :
         holder.item.setOnClickListener {
             val bundle = bundleOf(USERNAME_KEY to myDataset[position])
 
-            (holder.item.context.activity() as? HomeNavActivity)?.let {
+            (holder.item.context.activity() as? INav)?.let {
                 it.navigate(UserProfile(), bundle)
             }
         }

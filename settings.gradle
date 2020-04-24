@@ -1,2 +1,2 @@
-include ':app', ':base-android'
-rootProject.name='arch-android'
+include ':app', ':baseAndroid'
+rootProject.name='baseAndroidDemo'

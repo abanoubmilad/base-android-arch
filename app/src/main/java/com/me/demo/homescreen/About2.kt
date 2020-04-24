@@ -1,8 +1,7 @@
 package com.me.demo.homescreen
 
-import android.os.Bundle
-import android.view.View
-import com.me.base_android.nav.NavFragment
+import com.me.baseAndroid.nav.NavFragment
+import com.me.baseAndroid.view.getPrivateViewModel
 import com.me.demo.R
 import kotlinx.android.synthetic.main.fragment_about2.*
 
@@ -12,19 +11,26 @@ import kotlinx.android.synthetic.main.fragment_about2.*
 class About2 : NavFragment() {
     override val layoutId = R.layout.fragment_about2
 
+    val viewModel by lazy {
+        getPrivateViewModel(ViewModel::class.java)
+    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreated() {
 
         btn.setOnClickListener {
-            navigate(About3())
+            INav?.navigate(About3())
 
         }
     }
 
-    override fun onVisible() {
-        super.onVisible()
+    override fun onVisibleAgain() {
+        super.onVisibleAgain()
 
         showCookieBar("about 2")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
     }
 }

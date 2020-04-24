@@ -1,8 +1,6 @@
 package com.me.demo.homescreen
 
-import android.os.Bundle
-import android.view.View
-import com.me.base_android.nav.NavFragment
+import com.me.baseAndroid.nav.NavFragment
 import com.me.demo.R
 import kotlinx.android.synthetic.main.fragment_title.*
 
@@ -12,17 +10,16 @@ import kotlinx.android.synthetic.main.fragment_title.*
 class Title : NavFragment() {
     override val layoutId = R.layout.fragment_title
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreated() {
         about_btn.setOnClickListener {
-            navigate(About())
+            INav?.navigate(About())
         }
 
     }
 
 
-    override fun onVisible() {
-        super.onVisible()
+    override fun onVisibleAgain() {
+        super.onVisibleAgain()
 
         showCookieBar("title")
     }

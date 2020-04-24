@@ -1,6 +1,6 @@
 package com.me.demo.homescreen
 
-import com.me.base_android.base.BaseViewModel
+import com.me.baseAndroid.base.BaseViewModel
 
 class ViewModel : BaseViewModel() {
 
@@ -9,5 +9,9 @@ class ViewModel : BaseViewModel() {
 
     fun checkMe() {
         check = false
+    }
+
+    override fun onCleared() {
+        super.onCleared()
     }
 }

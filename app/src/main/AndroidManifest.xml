@@ -19,8 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.me.demo.fullNav.MainActivityFull" />
-        <activity android:name="com.me.demo.MainActivity" />
+        <activity android:name=".MainActivityMultiFull" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

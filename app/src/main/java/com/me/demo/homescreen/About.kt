@@ -1,14 +1,12 @@
 package com.me.demo.homescreen
 
 import android.content.Intent
-import android.os.Bundle
-import android.view.View
-import com.me.base_android.cropper.PhotoCropperActivity
-import com.me.base_android.cropper.PhotoCropperConfig
-import com.me.base_android.nav.NavFragment
-import com.me.base_android.view.getPrivateViewModel
-import com.me.base_android.view.highLightKeyword
-import com.me.base_android.view.startUrlIntent
+import com.me.baseAndroid.cropper.PhotoCropperActivity
+import com.me.baseAndroid.cropper.PhotoCropperConfig
+import com.me.baseAndroid.nav.NavFragment
+import com.me.baseAndroid.view.getPrivateViewModel
+import com.me.baseAndroid.view.highLightKeyword
+import com.me.baseAndroid.view.startUrlIntent
 import com.me.demo.BuildConfig
 import com.me.demo.R
 import kotlinx.android.synthetic.main.fragment_about.*
@@ -23,14 +21,12 @@ class About : NavFragment() {
         getPrivateViewModel(ViewModel::class.java)
     }
     private var firstCreation = true
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreated() {
 
         viewModel.checkMe()
 
         btn.setOnClickListener {
-            // navigate(About2())
-            onSelectImageClick()
+            INav?.navigate(About2())
         }
         about_tv.highLightKeyword("About 111111 aaaa", listOf("A", "a"), onClicks = listOf({
             activity.startUrlIntent("google.com")
@@ -40,13 +36,14 @@ class About : NavFragment() {
         about_tv2.highLightKeyword("About 111111 aaaa", "A", onClick = {
             activity.startUrlIntent("google.com")
         })
-        about_tv.text = "hello"
+        about_tv.text = "hello mannnnnnnnzzz"
+        about_tv.text = "hello mannnnnnnnzzz222222"
 
     }
 
 
-    override fun onVisible() {
-        super.onVisible()
+    override fun onVisibleAgain() {
+        super.onVisibleAgain()
 
         showCookieBar("about 1")
     }
