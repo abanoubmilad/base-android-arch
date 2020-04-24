@@ -44,7 +44,7 @@ abstract class NavFragment : BaseFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        if (!hasInitializedRootView) {
+        if (!hasInitializedRootView || !shouldSaveState) {
             hasInitializedRootView = true
             onCreated()
         }
