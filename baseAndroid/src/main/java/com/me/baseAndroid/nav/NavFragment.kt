@@ -28,7 +28,7 @@ abstract class NavFragment : BaseFragment() {
         if (rootView == null || !shouldSaveState) {
             wasInVisibleBefore = false
             // Inflate the layout for this fragment
-            rootView = inflater.inflate(layoutId, container, false)
+            rootView = buildRootView(inflater, container)
         } else {
             // Do not inflate the layout again.
             // The returned View of onCreateView will be added into the fragment.

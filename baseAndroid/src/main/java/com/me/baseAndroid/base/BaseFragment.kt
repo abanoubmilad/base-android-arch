@@ -24,7 +24,14 @@ abstract class BaseFragment : Fragment(), ITextWatcher {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(layoutId, container, false)
+    ): View? = buildRootView(inflater, container)
+
+    open fun buildRootView(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): View {
+        return inflater.inflate(layoutId, container, false)
+    }
 
     abstract val layoutId: Int
 
