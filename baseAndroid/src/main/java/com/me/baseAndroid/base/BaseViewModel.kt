@@ -21,6 +21,13 @@ open class BaseViewModel : ViewModel(), Isync, IObserve {
         hashMapOf<ObservableField<*>, Observable.OnPropertyChangedCallback>()
     }
 
+    private val _networkFailure =
+        SingleLiveEvent<Unit>()
+    val networkFailure: LiveData<Unit> = _networkFailure
+
+    override var networkFailureCallBack: (() -> Unit)? = {
+        _networkFailure.postValue(Unit)
+    }
 
     private val _message =
         SingleLiveEvent<@IdRes Int>()

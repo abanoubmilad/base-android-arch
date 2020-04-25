@@ -6,6 +6,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -66,6 +67,26 @@ abstract class BaseActivity : AppCompatActivity(), ITextWatcher {
             .show()
 
     }
+
+    fun showCookieBar(
+        highLightFunction: (TextView) -> Unit,
+        bgResId: Int = R.color.base_arch_module_cookiebar_error_red
+    ) {
+        CookieBar.build(this)
+            .setCustomView(R.layout.base_arch_module_layout_cookiebar)
+            .setDuration(3000)
+            .setEnableAutoDismiss(true)
+            .setSwipeToDismiss(false)
+            .setCookiePosition(CookieBar.TOP)
+            .setBackgroundColor(bgResId)
+            .setMessageColor(R.color.base_arch_module_cookiebar_text_color)
+            .setCustomViewInitializer { view ->
+                highLightFunction(view.findViewById(R.id.tv_message))
+            }
+            .show()
+
+    }
+
 
     fun showCookieBar(
         messageResId: Int,

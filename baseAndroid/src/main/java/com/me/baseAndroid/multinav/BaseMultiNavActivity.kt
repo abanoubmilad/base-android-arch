@@ -2,21 +2,22 @@ package com.me.baseAndroid.multinav
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.me.baseAndroid.base.ConnectifyActivity
+import com.me.baseAndroid.R
+import com.me.baseAndroid.base.AlertDisconnectionActivity
 import com.me.baseAndroid.nav.INav
 import com.me.baseAndroid.nav.NavFragment
 import com.me.baseAndroid.view.executeIfAdded
+import kotlinx.android.synthetic.main.base_arch_module_multi_nav_activity.*
 import ru.dimakron.multistacks_lib.BackResultType
 import ru.dimakron.multistacks_lib.MultiStacks
 
 /**
  * Created by Abanoub Hanna.
  */
-abstract class HomeNavMultiActivity : ConnectifyActivity(), INav {
-    abstract val bottomNavLayoutId: Int
+abstract class BaseMultiNavActivity : AlertDisconnectionActivity(), INav {
+    override val layoutId = R.layout.base_arch_module_multi_nav_activity
     abstract val selectedTabIndex: Int
-    abstract val navContainerId: Int
+    abstract val bottomMenuId: Int
     abstract val navTabFragments: List<() -> Fragment>
     abstract val navTabFragmentsMap: HashMap<Int, Int>
 
@@ -24,14 +25,13 @@ abstract class HomeNavMultiActivity : ConnectifyActivity(), INav {
 
     private lateinit var multiStacks: MultiStacks
 
-    private val bottomNavView: BottomNavigationView by lazy {
-        findViewById<BottomNavigationView>(bottomNavLayoutId)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        multiStacks = MultiStacks.Builder(supportFragmentManager, navContainerId)
+        bottom_nav.inflateMenu(bottomMenuId)
+
+        multiStacks = MultiStacks.Builder(supportFragmentManager, R.id.nav_host_container)
             .setState(savedInstanceState)
             .setRootFragmentInitializers(navTabFragments)
             .setSelectedTabIndex(selectedTabIndex)
@@ -53,10 +53,10 @@ abstract class HomeNavMultiActivity : ConnectifyActivity(), INav {
             .build()
 
         navTabFragmentsMap.filterValues { it == selectedTabIndex }.keys.firstOrNull()?.let {
-            bottomNavView.selectedItemId = it
+            bottom_nav.selectedItemId = it
         }
 
-        bottomNavView.setOnNavigationItemSelectedListener {
+        bottom_nav.setOnNavigationItemSelectedListener {
             hideKeyboard()
 
             val targetIndex = navTabFragmentsMap[it.itemId]
@@ -83,7 +83,7 @@ abstract class HomeNavMultiActivity : ConnectifyActivity(), INav {
     }
 
     override fun onDestroy() {
-        bottomNavView.setOnNavigationItemSelectedListener(null)
+        bottom_nav.setOnNavigationItemSelectedListener(null)
         super.onDestroy()
     }
 
@@ -94,7 +94,7 @@ abstract class HomeNavMultiActivity : ConnectifyActivity(), INav {
         } else {
             result.newIndex?.let { newIndex ->
                 navTabFragmentsMap.filterValues { it == newIndex }.keys.firstOrNull()?.let {
-                    bottomNavView.selectedItemId = it
+                    bottom_nav.selectedItemId = it
                 }
             }
         }
@@ -102,7 +102,7 @@ abstract class HomeNavMultiActivity : ConnectifyActivity(), INav {
 
 
     override fun navigate(tabIndex: Int, clearAllTop: Boolean) {
-        bottomNavView.selectedItemId = bottomNavView.menu.getItem(tabIndex).itemId
+        bottom_nav.selectedItemId = bottom_nav.menu.getItem(tabIndex).itemId
         if (clearAllTop)
             multiStacks.clearStack()
     }

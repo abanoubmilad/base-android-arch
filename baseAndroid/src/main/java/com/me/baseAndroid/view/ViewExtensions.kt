@@ -46,6 +46,10 @@ fun <V : BaseViewModel> FragmentActivity.getViewModel(clazz: Class<V>): V {
     }
 }
 
+fun <T> FragmentActivity.observe(liveData: LiveData<T>, callback: (T) -> Unit) {
+    liveData.observe(this, Observer(callback))
+}
+
 fun <T> FragmentActivity.observe(liveData: MutableLiveData<T>, callback: (T) -> Unit) {
     liveData.observe(this, Observer(callback))
 }

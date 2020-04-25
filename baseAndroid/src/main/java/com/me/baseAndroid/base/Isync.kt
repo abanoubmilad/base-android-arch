@@ -19,7 +19,10 @@ import retrofit2.Response
 interface Isync {
     val disposable: CompositeDisposable
 
+    var networkFailureCallBack: (() -> Unit)?
+
     fun disposeIsync() {
+        networkFailureCallBack = null
         disposable.dispose()
     }
 
@@ -87,6 +90,7 @@ interface Isync {
         onFailure(NetworkResponseStatus().apply {
             message = response.localizedMessage
         })
+        networkFailureCallBack?.invoke()
     }
 
     private fun <R> handleNetworkResponse(
