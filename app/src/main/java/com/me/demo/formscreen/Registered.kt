@@ -15,8 +15,7 @@ class Registered : NavFragment() {
 
     }
 
-    override fun onVisibleAgain() {
-        super.onVisibleAgain()
+    override fun onVisible() {
 
         showCookieBar("Registered")
     }

@@ -36,8 +36,7 @@ class Leaderboard : NavFragment() {
 
     }
 
-    override fun onVisibleAgain() {
-        super.onVisibleAgain()
+    override fun onVisible() {
 
         showCookieBar("leadership")
     }

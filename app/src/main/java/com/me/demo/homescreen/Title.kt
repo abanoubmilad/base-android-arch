@@ -18,8 +18,7 @@ class Title : NavFragment() {
     }
 
 
-    override fun onVisibleAgain() {
-        super.onVisibleAgain()
+    override fun onVisible() {
 
         showCookieBar("title")
     }

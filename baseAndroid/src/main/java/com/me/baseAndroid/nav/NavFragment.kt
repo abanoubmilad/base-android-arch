@@ -13,7 +13,7 @@ abstract class NavFragment : BaseFragment() {
     val INav
         get() = activity as? INav
 
-    open val shouldSaveState = true
+    open val shouldSaveState = false
 
     private var hasInitializedRootView = false
     private var wasInVisibleBefore = false
@@ -51,19 +51,18 @@ abstract class NavFragment : BaseFragment() {
         if (!hasInitializedRootView || !shouldSaveState) {
             hasInitializedRootView = true
             onCreated()
+            onVisible()
         }
     }
 
     abstract fun onCreated()
 
-    open fun onVisibleAgain() {
-
-    }
+    abstract fun onVisible()
 
     fun onVisibleInternal() {
         if (hasInitializedRootView && wasInVisibleBefore) {
             wasInVisibleBefore = false
-            onVisibleAgain()
+            onVisible()
         }
     }
 }

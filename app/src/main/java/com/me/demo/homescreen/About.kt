@@ -42,8 +42,7 @@ class About : NavFragment() {
     }
 
 
-    override fun onVisibleAgain() {
-        super.onVisibleAgain()
+    override fun onVisible() {
 
         showCookieBar("about 1")
     }

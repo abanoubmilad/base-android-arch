@@ -19,8 +19,7 @@ class UserProfile : NavFragment() {
     }
 
 
-    override fun onVisibleAgain() {
-        super.onVisibleAgain()
+    override fun onVisible() {
 
         showCookieBar("User profile")
     }
