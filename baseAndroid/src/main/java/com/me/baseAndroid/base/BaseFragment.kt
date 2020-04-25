@@ -90,9 +90,8 @@ abstract class BaseFragment : Fragment(), ITextWatcher {
         })
     }
 
-    override fun onDestroyView() {
+    override fun onDestroy() {
         disposeITextWatcher()
-        super.onDestroyView()
+        super.onDestroy()
     }
-
 }

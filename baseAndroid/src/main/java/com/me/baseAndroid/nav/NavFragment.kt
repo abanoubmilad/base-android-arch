@@ -53,7 +53,7 @@ abstract class NavFragment : BaseFragment() {
     abstract fun onCreated()
 
     open fun onVisibleAgain() {
-        restoreITextWatcher()
+
     }
 
     fun onVisibleInternal() {
