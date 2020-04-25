@@ -25,7 +25,11 @@ abstract class NavFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        if (rootView == null || !shouldSaveState) {
+        if (!shouldSaveState) {
+            wasInVisibleBefore = false
+            // Inflate the layout for this fragment
+            return buildRootView(inflater, container)
+        } else if (rootView == null) {
             wasInVisibleBefore = false
             // Inflate the layout for this fragment
             rootView = buildRootView(inflater, container)
