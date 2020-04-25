@@ -52,7 +52,7 @@ abstract class BaseMultiNavActivity : AlertDisconnectionActivity(), INav {
             })
             .build()
 
-        navTabFragmentsMap.filterValues { it == selectedTabIndex }.keys.firstOrNull()?.let {
+        getMenuItemIdOfIndex(selectedTabIndex)?.let {
             bottom_nav.selectedItemId = it
         }
 
@@ -60,11 +60,13 @@ abstract class BaseMultiNavActivity : AlertDisconnectionActivity(), INav {
             hideKeyboard()
 
             val targetIndex = navTabFragmentsMap[it.itemId]
-            if (targetIndex != null)
+            if (targetIndex != null) {
                 onNavTabClick(targetIndex)
-            else
+                true
+            } else {
                 onNonNavTabSelected(it.itemId)
-            true
+                false
+            }
         }
     }
 
@@ -93,18 +95,23 @@ abstract class BaseMultiNavActivity : AlertDisconnectionActivity(), INav {
             super.onBackPressed()
         } else {
             result.newIndex?.let { newIndex ->
-                navTabFragmentsMap.filterValues { it == newIndex }.keys.firstOrNull()?.let {
+                getMenuItemIdOfIndex(newIndex)?.let {
                     bottom_nav.selectedItemId = it
                 }
             }
         }
     }
 
+    private fun getMenuItemIdOfIndex(index: Int): Int? {
+        return navTabFragmentsMap.filterValues { it == index }.keys.firstOrNull()
+    }
 
     override fun navigate(tabIndex: Int, clearAllTop: Boolean) {
-        bottom_nav.selectedItemId = bottom_nav.menu.getItem(tabIndex).itemId
-        if (clearAllTop)
-            multiStacks.clearStack()
+        getMenuItemIdOfIndex(tabIndex)?.let {
+            bottom_nav.selectedItemId = it
+            if (clearAllTop)
+                multiStacks.clearStack()
+        }
     }
 
     override fun dismiss(clearAllTop: Boolean) {
