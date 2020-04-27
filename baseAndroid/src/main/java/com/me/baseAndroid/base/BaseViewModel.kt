@@ -15,18 +15,16 @@ import io.reactivex.disposables.CompositeDisposable
  * Created by Abanoub Hanna.
  */
 open class BaseViewModel : ViewModel(), Isync, IObserve {
+    companion object {
+        var appNetworkFailureCallBack: (() -> Unit)? = null
+    }
+
+    override var networkFailureCallBack = appNetworkFailureCallBack
+
     override val disposable = CompositeDisposable()
 
     override val observablesMap by lazy {
         hashMapOf<ObservableField<*>, Observable.OnPropertyChangedCallback>()
-    }
-
-    private val _networkFailure =
-        SingleLiveEvent<Unit>()
-    val networkFailure: LiveData<Unit> = _networkFailure
-
-    override var networkFailureCallBack: (() -> Unit)? = {
-        _networkFailure.postValue(Unit)
     }
 
     private val _message =
