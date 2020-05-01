@@ -4,11 +4,20 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.me.baseAndroid.R
 import com.me.baseAndroid.base.AlertDisconnectionActivity
+import com.me.baseAndroid.view.executeIfAdded
 
 open class BaseSingleNavActivity : AlertDisconnectionActivity(), INav {
 
     override val layoutId = R.layout.base_arch_module_single_nav_activity
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        supportFragmentManager.addOnBackStackChangedListener {
+            getCurrentFragment()?.executeIfAdded {
+                (it as? NavFragment)?.onVisibleInternal()
+            }
+        }
+    }
 
     override fun onBackPressed() {
         if (supportFragmentManager.backStackEntryCount > 1) {
@@ -28,6 +37,10 @@ open class BaseSingleNavActivity : AlertDisconnectionActivity(), INav {
     override fun dismissThenNavigate(fragment: Fragment, bundle: Bundle?) {
         dismiss()
         navigate(fragment, bundle)
+    }
+
+    override fun getCurrentFragment(): Fragment? {
+        return supportFragmentManager.fragments.lastOrNull()
     }
 
 

@@ -3,8 +3,12 @@ package com.me.baseAndroid.nav
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 
-/**
- * Created by Abanoub Hanna.
+/*
+ * *
+ *  * Created by Abanoub Milad Nassief Hanna
+ *  * on 5/1/20 11:05 PM
+ *  * Last modified 5/1/20 11:05 PM
+ *
  */
 interface INav {
 
@@ -18,4 +22,5 @@ interface INav {
 
     fun navigate(tabIndex: Int, fragment: Fragment, bundle: Bundle? = null)
 
+    fun getCurrentFragment(): Fragment?
 }

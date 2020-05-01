@@ -11,8 +11,12 @@ import kotlinx.android.synthetic.main.base_arch_module_multi_nav_activity.*
 import ru.dimakron.multistacks_lib.BackResultType
 import ru.dimakron.multistacks_lib.MultiStacks
 
-/**
- * Created by Abanoub Hanna.
+/*
+ * *
+ *  * Created by Abanoub Milad Nassief Hanna
+ *  * on 5/1/20 11:05 PM
+ *  * Last modified 5/1/20 11:05 PM
+ *
  */
 abstract class BaseMultiNavActivity : AlertDisconnectionActivity(), INav {
     override val layoutId = R.layout.base_arch_module_multi_nav_activity
@@ -173,7 +177,7 @@ abstract class BaseMultiNavActivity : AlertDisconnectionActivity(), INav {
 
     }
 
-    fun getCurrentFragment() = multiStacks.getCurrentFragment()
+    override fun getCurrentFragment() = multiStacks.getCurrentFragment()
 
 
 }

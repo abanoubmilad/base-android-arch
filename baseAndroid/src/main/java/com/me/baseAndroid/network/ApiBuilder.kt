@@ -9,8 +9,12 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-/**
- * Created by Abanoub Hanna.
+/*
+ * *
+ *  * Created by Abanoub Milad Nassief Hanna
+ *  * on 5/1/20 11:05 PM
+ *  * Last modified 5/1/20 11:05 PM
+ *
  */
 class ApiBuilder(
     private val appVersion: String, private var token: String? = null,

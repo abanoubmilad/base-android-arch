@@ -24,7 +24,13 @@ import java.io.File
 import java.io.IOException
 import java.io.Serializable
 
-
+/*
+ * *
+ *  * Created by Abanoub Milad Nassief Hanna
+ *  * on 5/1/20 11:05 PM
+ *  * Last modified 5/1/20 11:05 PM
+ *
+ */
 class PhotoCropperConfig : Serializable {
     var authority: String? = null
     var openCameraOnly: Boolean = false

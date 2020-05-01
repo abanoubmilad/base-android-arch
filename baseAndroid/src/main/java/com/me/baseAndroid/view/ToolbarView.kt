@@ -10,8 +10,12 @@ import androidx.core.widget.ImageViewCompat
 import com.me.baseAndroid.R
 import kotlinx.android.synthetic.main.base_arch_module_layout_toolbar.view.*
 
-/**
- * Created by Abanoub Hanna.
+/*
+ * *
+ *  * Created by Abanoub Milad Nassief Hanna
+ *  * on 5/1/20 11:05 PM
+ *  * Last modified 5/1/20 11:05 PM
+ *
  */
 class ToolbarView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0

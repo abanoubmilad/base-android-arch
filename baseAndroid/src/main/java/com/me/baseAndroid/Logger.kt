@@ -2,8 +2,12 @@ package com.me.baseAndroid
 
 import android.util.Log
 
-/**
- * Created by Abanoub Hanna.
+/*
+ * *
+ *  * Created by Abanoub Milad Nassief Hanna
+ *  * on 5/1/20 11:05 PM
+ *  * Last modified 5/1/20 11:05 PM
+ *
  */
 class AppLogger {
     companion object {

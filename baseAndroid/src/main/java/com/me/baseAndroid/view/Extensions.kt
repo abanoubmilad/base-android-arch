@@ -8,8 +8,12 @@ import java.text.NumberFormat
 import java.util.*
 import kotlin.math.roundToInt
 
-/**
- * Created by Abanoub Hanna.
+/*
+ * *
+ *  * Created by Abanoub Milad Nassief Hanna
+ *  * on 5/1/20 11:05 PM
+ *  * Last modified 5/1/20 11:05 PM
+ *
  */
 fun Double?.getPercentageAsString(context: Context?): String? {
     return if (this != null && context != null) "%1\$.0f%%".format(this * 100) else null

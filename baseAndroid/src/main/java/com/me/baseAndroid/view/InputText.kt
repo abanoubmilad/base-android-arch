@@ -8,8 +8,12 @@ import android.widget.EditText
 import androidx.core.content.ContextCompat
 import com.me.baseAndroid.R
 
-/**
- * Created by Abanoub Hanna.
+/*
+ * *
+ *  * Created by Abanoub Milad Nassief Hanna
+ *  * on 5/1/20 11:05 PM
+ *  * Last modified 5/1/20 11:05 PM
+ *
  */
 open class InputText(context: Context, attrs: AttributeSet) : EditText(context, attrs) {
     private val STATE_ERROR = intArrayOf(R.attr.state_error)

@@ -3,7 +3,13 @@ package com.me.baseAndroid.base
 import androidx.databinding.Observable
 import androidx.databinding.ObservableField
 
-
+/*
+ * *
+ *  * Created by Abanoub Milad Nassief Hanna
+ *  * on 5/1/20 11:05 PM
+ *  * Last modified 5/1/20 11:05 PM
+ *
+ */
 interface IObserve {
     val observablesMap: HashMap<ObservableField<*>, Observable.OnPropertyChangedCallback>
 

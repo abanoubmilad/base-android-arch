@@ -3,8 +3,12 @@ package com.me.baseAndroid.network
 import com.google.gson.annotations.SerializedName
 
 
-/**
- * Created by Abanoub Hanna on 2019-05-28.
+/*
+ * *
+ *  * Created by Abanoub Milad Nassief Hanna
+ *  * on 5/1/20 11:05 PM
+ *  * Last modified 5/1/20 11:05 PM
+ *
  */
 
 open class BaseNetworkResponse<T> : NetworkResponseStatus() {

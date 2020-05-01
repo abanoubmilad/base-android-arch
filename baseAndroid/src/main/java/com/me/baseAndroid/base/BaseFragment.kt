@@ -12,8 +12,12 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 
-/**
- * Created by Abanoub Hanna.
+/*
+ * *
+ *  * Created by Abanoub Milad Nassief Hanna
+ *  * on 5/1/20 11:05 PM
+ *  * Last modified 5/1/20 11:05 PM
+ *
  */
 abstract class BaseFragment : Fragment(), ITextWatcher {
     override val watchMap: HashMap<EditText, TextWatcher> by lazy {

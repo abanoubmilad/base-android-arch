@@ -13,8 +13,12 @@ import androidx.lifecycle.Observer
 import com.me.baseAndroid.R
 import org.aviran.cookiebar2.CookieBar
 
-/**
- * Created by Abanoub Hanna.
+/*
+ * *
+ *  * Created by Abanoub Milad Nassief Hanna
+ *  * on 5/1/20 11:05 PM
+ *  * Last modified 5/1/20 11:05 PM
+ *
  */
 abstract class BaseActivity : AppCompatActivity(), ITextWatcher {
     override val watchMap: HashMap<EditText, TextWatcher> by lazy {
