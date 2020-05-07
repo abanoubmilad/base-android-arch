@@ -1,3 +1,11 @@
+/*
+ * *
+ *  * Created by Abanoub Milad Nassief Hanna
+ *  * on 5/7/20 3:59 AM
+ *  * Last modified 5/7/20 3:59 AM
+ *
+ */
+
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
@@ -7,7 +15,7 @@ apply plugin: 'maven-publish'
 
 def libraryGroupId = 'com.github.abanoubmilad'
 def libraryArtifactId = 'baseAndroid'
-def libraryVersion = '1.41'
+def libraryVersion = '1.42'
 
 android {
     compileSdkVersion 29

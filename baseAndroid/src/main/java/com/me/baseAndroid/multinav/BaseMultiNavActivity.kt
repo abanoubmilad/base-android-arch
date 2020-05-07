@@ -1,3 +1,11 @@
+/*
+ * *
+ *  * Created by Abanoub Milad Nassief Hanna
+ *  * on 5/7/20 3:59 AM
+ *  * Last modified 5/7/20 3:59 AM
+ *
+ */
+
 package com.me.baseAndroid.multinav
 
 import android.os.Bundle
@@ -24,6 +32,7 @@ abstract class BaseMultiNavActivity : AlertDisconnectionActivity(), INav {
     abstract val bottomMenuId: Int
     abstract val navTabFragments: List<() -> Fragment>
     abstract val navTabFragmentsMap: HashMap<Int, Int>
+    open val enableClearTabOnClick: Boolean = true
 
     open fun onNonNavTabSelected(menItemId: Int) {}
 
@@ -76,7 +85,11 @@ abstract class BaseMultiNavActivity : AlertDisconnectionActivity(), INav {
 
     private fun onNavTabClick(index: Int) {
         if (index == multiStacks.getSelectedTabIndex()) {
-            multiStacks.popFragments(1)
+            if (enableClearTabOnClick) {
+                multiStacks.clearStack()
+            } else {
+                multiStacks.popFragments(1)
+            }
         } else {
             multiStacks.setSelectedTabIndex(index)
             onNavTabSelected(index)
@@ -135,38 +148,6 @@ abstract class BaseMultiNavActivity : AlertDisconnectionActivity(), INav {
         multiStacks.push(fragment)
     }
 
-    fun navigateSingleTop(
-        clearTop: Boolean = false,
-        navFragmentClass: Class<*>,
-        navFragmentCall: () -> Fragment,
-        bundle: Bundle? = null
-    ) {
-//        multiStacks.
-//        val found = multiStacks.popUntil(navFragmentClass, clearTop)
-//        if (!found || clearTop) {
-//            val fragment = navFragmentCall()
-//            fragment.arguments = bundle
-//            multiStacks.push(fragment)
-//        }
-
-    }
-
-    fun navigateSingleTop(
-        tabIndex: Int,
-        clearTop: Boolean = false,
-        navFragmentClass: Class<*>,
-        navFragmentCall: () -> Fragment,
-        bundle: Bundle? = null
-    ) {
-        navigate(tabIndex)
-        navigateSingleTop(
-            clearTop,
-            navFragmentClass,
-            navFragmentCall,
-            bundle
-        )
-
-    }
 
     override fun navigate(tabIndex: Int, fragment: Fragment, bundle: Bundle?) {
         navigate(tabIndex)
