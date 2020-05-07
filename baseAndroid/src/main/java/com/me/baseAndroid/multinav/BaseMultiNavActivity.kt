@@ -1,11 +1,3 @@
-/*
- * *
- *  * Created by Abanoub Milad Nassief Hanna
- *  * on 5/7/20 3:59 AM
- *  * Last modified 5/7/20 3:59 AM
- *
- */
-
 package com.me.baseAndroid.multinav
 
 import android.os.Bundle
