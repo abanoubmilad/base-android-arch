@@ -9,6 +9,7 @@
     <dimen name="base_360_dim_108_dp">@dimen/_90sdp</dimen>
     <dimen name="base_360_dim_109_dp">@dimen/_91sdp</dimen>
     <dimen name="base_360_dim_10_dp">@dimen/_9sdp</dimen>
+    <dimen name="base_360_dim_11_dp">@dimen/_9sdp</dimen>
     <dimen name="base_360_dim_110_dp">@dimen/_92sdp</dimen>
     <dimen name="base_360_dim_111_dp">@dimen/_93sdp</dimen>
     <dimen name="base_360_dim_112_dp">@dimen/_94sdp</dimen>
@@ -64,6 +65,7 @@
     <dimen name="base_360_dim_168_dp">@dimen/_140sdp</dimen>
     <dimen name="base_360_dim_169_dp">@dimen/_141sdp</dimen>
     <dimen name="base_360_dim_16_dp">@dimen/_14sdp</dimen>
+    <dimen name="base_360_dim_17_dp">@dimen/_14sdp</dimen>
     <dimen name="base_360_dim_170_dp">@dimen/_142sdp</dimen>
     <dimen name="base_360_dim_171_dp">@dimen/_143sdp</dimen>
     <dimen name="base_360_dim_172_dp">@dimen/_144sdp</dimen>
@@ -120,6 +122,7 @@
     <dimen name="base_360_dim_228_dp">@dimen/_190sdp</dimen>
     <dimen name="base_360_dim_229_dp">@dimen/_191sdp</dimen>
     <dimen name="base_360_dim_22_dp">@dimen/_19sdp</dimen>
+    <dimen name="base_360_dim_23_dp">@dimen/_19sdp</dimen>
     <dimen name="base_360_dim_230_dp">@dimen/_192sdp</dimen>
     <dimen name="base_360_dim_231_dp">@dimen/_193sdp</dimen>
     <dimen name="base_360_dim_232_dp">@dimen/_194sdp</dimen>
@@ -184,11 +187,13 @@
     <dimen name="base_360_dim_297_dp">@dimen/_248sdp</dimen>
     <dimen name="base_360_dim_298_dp">@dimen/_249sdp</dimen>
     <dimen name="base_360_dim_2_dp">@dimen/_2sdp</dimen>
+    <dimen name="base_360_dim_29_dp">@dimen/_24sdp</dimen>
     <dimen name="base_360_dim_30_dp">@dimen/_25sdp</dimen>
     <dimen name="base_360_dim_31_dp">@dimen/_26sdp</dimen>
     <dimen name="base_360_dim_32_dp">@dimen/_27sdp</dimen>
     <dimen name="base_360_dim_33_dp">@dimen/_28sdp</dimen>
     <dimen name="base_360_dim_34_dp">@dimen/_29sdp</dimen>
+    <dimen name="base_360_dim_35_dp">@dimen/_29sdp</dimen>
     <dimen name="base_360_dim_36_dp">@dimen/_30sdp</dimen>
     <dimen name="base_360_dim_37_dp">@dimen/_31sdp</dimen>
     <dimen name="base_360_dim_38_dp">@dimen/_32sdp</dimen>
@@ -269,17 +274,20 @@
     <dimen name="base_360_dim_117_sp">@dimen/_98ssp</dimen>
     <dimen name="base_360_dim_118_sp">@dimen/_99ssp</dimen>
     <dimen name="base_360_dim_120_sp">@dimen/_100ssp</dimen>
+    <dimen name="base_360_dim_11_sp">@dimen/_9ssp</dimen>
     <dimen name="base_360_dim_12_sp">@dimen/_10ssp</dimen>
     <dimen name="base_360_dim_13_sp">@dimen/_11ssp</dimen>
     <dimen name="base_360_dim_14_sp">@dimen/_12ssp</dimen>
     <dimen name="base_360_dim_15_sp">@dimen/_13ssp</dimen>
     <dimen name="base_360_dim_16_sp">@dimen/_14ssp</dimen>
+    <dimen name="base_360_dim_17_sp">@dimen/_14ssp</dimen>
     <dimen name="base_360_dim_18_sp">@dimen/_15ssp</dimen>
     <dimen name="base_360_dim_19_sp">@dimen/_16ssp</dimen>
     <dimen name="base_360_dim_1_sp">@dimen/_1ssp</dimen>
     <dimen name="base_360_dim_20_sp">@dimen/_17ssp</dimen>
     <dimen name="base_360_dim_21_sp">@dimen/_18ssp</dimen>
     <dimen name="base_360_dim_22_sp">@dimen/_19ssp</dimen>
+    <dimen name="base_360_dim_23_sp">@dimen/_19ssp</dimen>
     <dimen name="base_360_dim_24_sp">@dimen/_20ssp</dimen>
     <dimen name="base_360_dim_25_sp">@dimen/_21ssp</dimen>
     <dimen name="base_360_dim_26_sp">@dimen/_22ssp</dimen>
@@ -297,6 +305,7 @@
     <dimen name="base_360_dim_39_sp">@dimen/_33ssp</dimen>
     <dimen name="base_360_dim_3_sp">@dimen/_3ssp</dimen>
     <dimen name="base_360_dim_40_sp">@dimen/_34ssp</dimen>
+    <dimen name="base_360_dim_41_sp">@dimen/_34ssp</dimen>
     <dimen name="base_360_dim_42_sp">@dimen/_35ssp</dimen>
     <dimen name="base_360_dim_43_sp">@dimen/_36ssp</dimen>
     <dimen name="base_360_dim_44_sp">@dimen/_37ssp</dimen>
@@ -324,6 +333,7 @@
     <dimen name="base_360_dim_69_sp">@dimen/_58ssp</dimen>
     <dimen name="base_360_dim_6_sp">@dimen/_5ssp</dimen>
     <dimen name="base_360_dim_70_sp">@dimen/_59ssp</dimen>
+    <dimen name="base_360_dim_71_sp">@dimen/_59ssp</dimen>
     <dimen name="base_360_dim_72_sp">@dimen/_60ssp</dimen>
     <dimen name="base_360_dim_73_sp">@dimen/_61ssp</dimen>
     <dimen name="base_360_dim_74_sp">@dimen/_62ssp</dimen>
