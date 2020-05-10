@@ -40,14 +40,13 @@ interface Isync {
         call: Single<R>,
         onSuccess: (R) -> Unit,
         onFailure: (Throwable) -> Unit,
-        finally: (() -> Unit)? = null,
-        observeOnUiThread: Boolean = false
+        finally: (() -> Unit)? = null
     ) {
 
         disposable.add(
             call
                 .subscribeOn(Schedulers.io())
-                .observeOn(if (observeOnUiThread) AndroidSchedulers.mainThread() else Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     onSuccess.invoke(it)
                     finally?.invoke()
@@ -77,7 +76,7 @@ interface Isync {
                         // here we get both the results at a time.
                         return@BiFunction Pair(firstResponse, SecondResponse)
                     })
-                .observeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     firstOnSuccess.invoke(it.first)
                     secondOnSuccess.invoke(it.second)
@@ -101,13 +100,13 @@ interface Isync {
         disposable.add(
             firstCall
                 .subscribeOn(Schedulers.io())
-                .observeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ firstResponse ->
                     handleNetworkResponse(firstResponse, { response ->
                         disposable.add(
                             secondCall.invoke(response)
                                 .subscribeOn(Schedulers.io())
-                                .observeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe({ secondResponse ->
                                     handleNetworkResponse(secondResponse, onSuccess, onFailure)
                                     finally?.invoke()
@@ -169,16 +168,14 @@ interface Isync {
         call: Single<Response<R>>,
         onSuccess: (R?) -> Unit,
         onFailure: (NetworkResponseStatus) -> Unit,
-        finally: (() -> Unit)? = null,
-        observeOnUiThread: Boolean = false
+        finally: (() -> Unit)? = null
     ) {
         make(call,
             {
                 handleNetworkResponse(it, onSuccess, onFailure)
             }, {
                 handleNetworkFailure(it, onFailure)
-            }, finally,
-            observeOnUiThread
+            }, finally
         )
     }
 

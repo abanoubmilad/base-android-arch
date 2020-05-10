@@ -40,7 +40,7 @@ class ApiBuilder(
                 .addHeader("os-version", Build.VERSION.RELEASE)
                 .apply {
                     if (!token.isNullOrBlank()) {
-                        addHeader("Authorization", "Token token=$token")
+                        addHeader("Authorization", token.orEmpty())
                     }
                 }
                 .build()
