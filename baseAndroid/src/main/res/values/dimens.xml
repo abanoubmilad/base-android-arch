@@ -208,6 +208,7 @@
     <dimen name="base_360_dim_48_dp">@dimen/_40sdp</dimen>
     <dimen name="base_360_dim_49_dp">@dimen/_41sdp</dimen>
     <dimen name="base_360_dim_4_dp">@dimen/_4sdp</dimen>
+    <dimen name="base_360_dim_5_dp">@dimen/_4sdp</dimen>
     <dimen name="base_360_dim_50_dp">@dimen/_42sdp</dimen>
     <dimen name="base_360_dim_51_dp">@dimen/_43sdp</dimen>
     <dimen name="base_360_dim_52_dp">@dimen/_44sdp</dimen>
