@@ -18,7 +18,8 @@ import java.util.concurrent.TimeUnit
  */
 class ApiBuilder(
     private val appVersion: String, private var token: String? = null,
-    private val debug: Boolean = false
+    private val debug: Boolean = false,
+    private val tokenPrefix: String = "Token token="
 ) {
 
     val HTTP_REQUEST_TIMEOUT = 30
@@ -40,7 +41,7 @@ class ApiBuilder(
                 .addHeader("os-version", Build.VERSION.RELEASE)
                 .apply {
                     if (!token.isNullOrBlank()) {
-                        addHeader("Authorization", "Token token=$token")
+                        addHeader("Authorization", "$tokenPrefix$token")
                     }
                 }
                 .build()
