@@ -8,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import com.me.baseAndroid.R
 
 /*
  * *
@@ -60,6 +62,16 @@ abstract class BaseFragment : Fragment(), ITextWatcher {
     fun showCookieBar(msg: String) {
         (activity as? BaseActivity)?.let {
             it.showCookieBar(msg)
+        }
+    }
+
+    fun showCookieBar(
+        highLightFunction: (TextView) -> Unit,
+        bgResId: Int = R.color.base_arch_module_cookiebar_error_red,
+        duration: Long = 3000
+    ) {
+        (activity as? BaseActivity)?.let {
+            it.showCookieBar(highLightFunction, bgResId, duration)
         }
     }
 

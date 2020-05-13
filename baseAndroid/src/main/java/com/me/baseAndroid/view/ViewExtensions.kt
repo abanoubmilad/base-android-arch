@@ -2,6 +2,7 @@ package com.me.baseAndroid.view
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.Uri
@@ -85,7 +86,8 @@ fun TextView.highLightKeyword(
     color: Int? = null,
     onClicks: List<() -> Unit>? = null,
     isUnderLine: Boolean = false,
-    ignoreCase: Boolean = true
+    ignoreCase: Boolean = true,
+    linkColor: Int = Color.BLUE
 ) {
     val sb = SpannableString(text)
     var hasSpan = false
@@ -116,6 +118,8 @@ fun TextView.highLightKeyword(
                         override fun updateDrawState(ds: TextPaint) {
                             super.updateDrawState(ds)
                             ds.isUnderlineText = isUnderLine
+                            ds.color = linkColor
+
                         }
                     }, index,
                     index + keyword.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
@@ -142,7 +146,8 @@ fun TextView.highLightKeyword(
     color: Int? = null,
     onClick: (() -> Unit)? = null,
     isUnderLine: Boolean = false,
-    ignoreCase: Boolean = true
+    ignoreCase: Boolean = true,
+    linkColor: Int = Color.BLUE
 ) {
     val index = text.indexOf(keyword, 0, ignoreCase)
     if (index != -1) {
@@ -168,6 +173,8 @@ fun TextView.highLightKeyword(
                     override fun updateDrawState(ds: TextPaint) {
                         super.updateDrawState(ds)
                         ds.isUnderlineText = isUnderLine
+                        ds.color = linkColor
+
                     }
                 }, index,
                 index + keyword.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE

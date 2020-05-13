@@ -35,7 +35,9 @@ open class BaseSingleNavActivity : AlertDisconnectionActivity(), INav {
     }
 
     override fun dismissThenNavigate(fragment: Fragment, bundle: Bundle?) {
-        dismiss()
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            supportFragmentManager.popBackStack()
+        }
         navigate(fragment, bundle)
     }
 

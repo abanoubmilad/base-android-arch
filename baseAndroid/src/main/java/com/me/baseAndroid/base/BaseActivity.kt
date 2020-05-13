@@ -74,11 +74,12 @@ abstract class BaseActivity : AppCompatActivity(), ITextWatcher {
 
     fun showCookieBar(
         highLightFunction: (TextView) -> Unit,
-        bgResId: Int = R.color.base_arch_module_cookiebar_error_red
+        bgResId: Int = R.color.base_arch_module_cookiebar_error_red,
+        duration: Long = 3000
     ) {
         CookieBar.build(this)
             .setCustomView(R.layout.base_arch_module_layout_cookiebar)
-            .setDuration(3000)
+            .setDuration(duration)
             .setEnableAutoDismiss(true)
             .setSwipeToDismiss(false)
             .setCookiePosition(CookieBar.TOP)
