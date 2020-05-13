@@ -13,6 +13,7 @@ open class BaseSingleNavActivity : AlertDisconnectionActivity(), INav {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportFragmentManager.addOnBackStackChangedListener {
+            hideKeyboard()
             getCurrentFragment()?.executeIfAdded {
                 (it as? NavFragment)?.onVisibleInternal()
             }

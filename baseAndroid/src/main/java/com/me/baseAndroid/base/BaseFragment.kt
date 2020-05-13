@@ -53,6 +53,12 @@ abstract class BaseFragment : Fragment(), ITextWatcher {
         }
     }
 
+    fun hideCookieBar() {
+        (activity as? BaseActivity)?.let {
+            it.hideCookieBar()
+        }
+    }
+
     fun showCookieBar(resource: Int) {
         (activity as? BaseActivity)?.let {
             it.showCookieBar(resource)

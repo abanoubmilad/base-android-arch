@@ -44,6 +44,7 @@ abstract class BaseMultiNavActivity : AlertDisconnectionActivity(), INav {
             .setTransactionListener(object : MultiStacks.TransactionListener {
 
                 override fun onFragmentTransaction(fragment: Fragment?) {
+                    hideKeyboard()
                     fragment.executeIfAdded {
                         (it as? NavFragment)?.onVisibleInternal()
                     }
