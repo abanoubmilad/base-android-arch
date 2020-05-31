@@ -108,4 +108,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/about_tv" />
 
+    <com.me.baseAndroid.view.InputText
+        android:id="@+id/InputText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="try InputText"
+        android:text="is"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_tv2"
+        app:state_error="true" />
+
+    <com.me.baseAndroid.view.RegularInputText
+        android:id="@+id/RegularInputText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="try RegularInputText"
+        android:text="is"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/InputText"
+        app:state_error="true" />
 </androidx.constraintlayout.widget.ConstraintLayout>

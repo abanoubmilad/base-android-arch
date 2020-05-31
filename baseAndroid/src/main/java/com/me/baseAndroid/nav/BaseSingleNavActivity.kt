@@ -21,17 +21,20 @@ open class BaseSingleNavActivity : AlertDisconnectionActivity(), INav {
     }
 
     override fun onBackPressed() {
-        if (supportFragmentManager.backStackEntryCount > 1) {
-            dismiss()
-        } else {
-            finish()
-        }
-
+        dismiss()
     }
 
     override fun dismiss(clearAllTop: Boolean) {
-        if (supportFragmentManager.backStackEntryCount > 1) {
+        var count = supportFragmentManager.backStackEntryCount
+        if (clearAllTop) {
+            while (count > 0) {
+                count--
+                supportFragmentManager.popBackStack()
+            }
+        } else if (count > 1) {
             supportFragmentManager.popBackStack()
+        } else {
+            finish()
         }
     }
 

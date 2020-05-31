@@ -1,6 +1,7 @@
 package com.me.demo.homescreen
 
 import android.content.Intent
+import android.graphics.Color
 import com.me.baseAndroid.cropper.PhotoCropperActivity
 import com.me.baseAndroid.cropper.PhotoCropperConfig
 import com.me.baseAndroid.nav.NavFragment
@@ -23,10 +24,14 @@ class About : NavFragment() {
     private var firstCreation = true
     override fun onCreated() {
 
+        InputText.hasError = true
+        RegularInputText.hasError = true
+
         viewModel.checkMe()
 
         btn.setOnClickListener {
-            INav?.navigate(About2())
+            onSelectImageClick()
+            // INav?.navigate(About2())
         }
         about_tv.highLightKeyword("About 111111 aaaa", listOf("A", "a"), onClicks = listOf({
             activity.startUrlIntent("google.com")
@@ -56,12 +61,10 @@ class About : NavFragment() {
                     authority = BuildConfig.APPLICATION_ID
                     openCameraOnly = true
                     openChooserOnly = false
-                    saveColor = null
+                    saveColor = Color.BLUE
+                    cancelColor = Color.BLUE
                     save = "Save"
                     title = "Profile Photo"
-                    width = 1200
-                    height = 1200
-                    quality = 75
                 }, null
             )
         }

@@ -32,22 +32,34 @@ import java.io.Serializable
  *
  */
 class PhotoCropperConfig : Serializable {
+
+
     var authority: String? = null
     var openCameraOnly: Boolean = false
     var openChooserOnly: Boolean = false
     var saveColor: Int? = null
-    var save: String = ""
+    var cancelColor: Int? = null
+    var save: String? = null
     var title: String = ""
 
-    var width: Int? = null
-    var height: Int? = null
-    var quality: Int? = null
+    var width: Int? = defaultWidth
+
+    var quality: Int = defaultQuality
+
+    var minWindowWidth: Int? = defaultMinWindowWidth
+
+    companion object {
+        const val defaultWidth = 1000
+        const val defaultQuality = 90
+
+        const val defaultMinWindowWidth = 900
+    }
 
 }
 
 class PhotoCropperActivity : ToolbarActivity() {
 
-    private var photoCropperConfig: PhotoCropperConfig? = null
+    private var config: PhotoCropperConfig? = null
     private var uriToCrop: Uri? = null
 
     override val layoutId = R.layout.back_arch_module_photo_cropper_activity
@@ -87,28 +99,48 @@ class PhotoCropperActivity : ToolbarActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        photoCropperConfig = intent.getSerializableExtra(EXTRA_CONFIG) as PhotoCropperConfig?
+        config = intent.getSerializableExtra(EXTRA_CONFIG) as PhotoCropperConfig?
         uriToCrop = intent.getParcelableExtra<Uri>(URI_TO_CROP)
 
         cropImageView.setAspectRatio(1, 1)
         cropImageView.cropShape = CropImageView.CropShape.OVAL
 
-        tv_title.text = photoCropperConfig?.title
-        tv_save.text = photoCropperConfig?.save
+        cropImageView.isAutoZoomEnabled = false
+
+        val requiredWidth = config?.width ?: PhotoCropperConfig.defaultWidth
+        val minWidth = config?.minWindowWidth ?: PhotoCropperConfig.defaultMinWindowWidth
+        cropImageView.setMinCropResultSize(minWidth, minWidth)
+
+
+        tv_title.text = config?.title
+        config?.save?.let {
+            tv_save.text = it
+        }
+
+        tv_cancel.setOnClickListener {
+            onBackPressed()
+        }
         tv_save.setOnClickListener {
             cropImageView.cropShape = CropImageView.CropShape.RECTANGLE
             outputUri?.let {
                 cropImageView.saveCroppedImageAsync(
                     it,
-                    Bitmap.CompressFormat.PNG,
-                    photoCropperConfig?.quality ?: 90
+                    Bitmap.CompressFormat.JPEG,
+                    config?.quality ?: PhotoCropperConfig.defaultQuality,
+                    requiredWidth,
+                    requiredWidth
                 )
 
             }
         }
-        photoCropperConfig?.saveColor?.let {
+
+        config?.saveColor?.let {
             tv_save.setTextColor(it)
         }
+        config?.cancelColor?.let {
+            tv_cancel.setTextColor(it)
+        }
+
         cropImageView.setOnCropImageCompleteListener { _, result ->
             val resultCode =
                 if (result.error == null) Activity.RESULT_OK else Activity.RESULT_CANCELED
@@ -126,23 +158,15 @@ class PhotoCropperActivity : ToolbarActivity() {
             }
         }
 
-        if (photoCropperConfig?.openCameraOnly == true) {
+        if (config?.openCameraOnly == true) {
             startCameraIntent()
-        } else if (photoCropperConfig?.openChooserOnly == true) {
+        } else if (config?.openChooserOnly == true) {
             startChooserIntent()
         }
 
         if (uriToCrop != null) {
             cropImageView.setImageUriAsync(uriToCrop)
         }
-
-        if (photoCropperConfig?.width != null && photoCropperConfig?.height != null) {
-            cropImageView.setMaxCropResultSize(
-                photoCropperConfig?.width ?: 1000,
-                photoCropperConfig?.height ?: 1000
-            )
-        }
-
 
     }
 
@@ -166,7 +190,7 @@ class PhotoCropperActivity : ToolbarActivity() {
     private val outputUri: Uri? by lazy {
         try {
             FileProvider.getUriForFile(
-                this, photoCropperConfig?.authority ?: "",
+                this, config?.authority ?: "",
                 File.createTempFile(
                     "cropped",
                     ".png",
