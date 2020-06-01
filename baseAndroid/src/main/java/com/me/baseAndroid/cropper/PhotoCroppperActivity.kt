@@ -168,6 +168,9 @@ class PhotoCropperActivity : ToolbarActivity() {
             cropImageView.setImageUriAsync(uriToCrop)
         }
 
+        cropImageView.guidelines = CropImageView.Guidelines.ON
+        cropImageView.setMultiTouchEnabled(true)
+
     }
 
 

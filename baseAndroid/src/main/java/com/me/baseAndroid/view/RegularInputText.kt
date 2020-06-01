@@ -12,7 +12,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.EditText
-import androidx.core.content.ContextCompat
 import com.me.baseAndroid.R
 
 /*
@@ -27,13 +26,6 @@ open class RegularInputText(context: Context, attrs: AttributeSet) : EditText(co
     var hasError = false
         set(value) {
             field = value
-            setHintTextColor(
-                ContextCompat.getColor(
-                    context,
-                    if (value) R.color.base_arch_module_input_text_error_text_color
-                    else R.color.base_arch_module_input_text_text_color
-                )
-            )
             refreshDrawableState()
         }
 
