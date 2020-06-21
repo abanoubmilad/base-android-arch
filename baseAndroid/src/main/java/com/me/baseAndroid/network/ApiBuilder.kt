@@ -80,5 +80,13 @@ class ApiBuilder(
             .create(apiInterfaceClass)
     }
 
+    fun getRXRetrofit(baseUrl: String): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(baseUrl)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .client(CLIENT)
+            .build()
+    }
 
 }
