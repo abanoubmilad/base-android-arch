@@ -31,7 +31,7 @@ class ApiBuilder(
     /**
      * Network interceptors
      */
-    private val interceptor by lazy {
+    val interceptor by lazy {
         { chain: Interceptor.Chain ->
             val request = chain.request()
                 .newBuilder()
@@ -53,7 +53,7 @@ class ApiBuilder(
     /**
      * Client initialization
      */
-    private val CLIENT by lazy {
+    val CLIENT by lazy {
         OkHttpClient.Builder()
             .addInterceptor(interceptor)
             .apply {
