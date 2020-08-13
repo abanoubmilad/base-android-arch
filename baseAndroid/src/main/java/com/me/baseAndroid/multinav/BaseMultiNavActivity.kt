@@ -38,7 +38,7 @@ abstract class BaseMultiNavActivity : AlertDisconnectionActivity(), INav {
         bottom_nav.inflateMenu(bottomMenuId)
 
         multiStacks = MultiStacks.Builder(supportFragmentManager, R.id.nav_host_container)
-            .setState(if (saveInstanceState) savedInstanceState else null)
+            .setState(savedInstanceState)
             .setRootFragmentInitializers(navTabFragments)
             .setSelectedTabIndex(selectedTabIndex)
             .setTabHistoryEnabled(true)
@@ -91,7 +91,9 @@ abstract class BaseMultiNavActivity : AlertDisconnectionActivity(), INav {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        multiStacks.saveInstanceState(outState)
+        if (saveInstanceState) {
+            multiStacks.saveInstanceState(outState)
+        }
         super.onSaveInstanceState(outState)
     }
 
