@@ -25,6 +25,7 @@ abstract class BaseMultiNavActivity : AlertDisconnectionActivity(), INav {
     abstract val navTabFragments: List<() -> Fragment>
     abstract val navTabFragmentsMap: HashMap<Int, Int>
     open val enableClearTabOnClick: Boolean = true
+    open val saveInstanceState: Boolean = false
 
     open fun onNonNavTabSelected(menItemId: Int) {}
 
@@ -37,7 +38,7 @@ abstract class BaseMultiNavActivity : AlertDisconnectionActivity(), INav {
         bottom_nav.inflateMenu(bottomMenuId)
 
         multiStacks = MultiStacks.Builder(supportFragmentManager, R.id.nav_host_container)
-            .setState(savedInstanceState)
+            .setState(if (saveInstanceState) savedInstanceState else null)
             .setRootFragmentInitializers(navTabFragments)
             .setSelectedTabIndex(selectedTabIndex)
             .setTabHistoryEnabled(true)
