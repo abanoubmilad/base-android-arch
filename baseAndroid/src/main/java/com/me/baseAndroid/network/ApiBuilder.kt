@@ -1,6 +1,7 @@
 package com.me.baseAndroid.network
 
 import android.os.Build
+import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -8,6 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+
 
 /*
  * *
@@ -19,7 +21,8 @@ import java.util.concurrent.TimeUnit
 class ApiBuilder(
     private val appVersion: String, private var token: String? = null,
     private val debug: Boolean = false,
-    private val tokenPrefix: String = "Token token="
+    private val tokenPrefix: String = "Token token=",
+    private val serlizeNulls: Boolean = false
 ) {
 
     val HTTP_REQUEST_TIMEOUT = 30
@@ -73,6 +76,13 @@ class ApiBuilder(
     fun <S> getRXApiInstance(apiInterfaceClass: Class<S>, baseUrl: String): S {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
+            .apply {
+                if (serlizeNulls)
+                    addConverterFactory(GsonConverterFactory.create(GsonBuilder().serializeNulls().create()))
+                else
+                    addConverterFactory(GsonConverterFactory.create())
+
+            }
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(CLIENT)
@@ -83,7 +93,13 @@ class ApiBuilder(
     fun getRXRetrofit(baseUrl: String): Retrofit {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
-            .addConverterFactory(GsonConverterFactory.create())
+            .apply {
+                if (serlizeNulls)
+                    addConverterFactory(GsonConverterFactory.create(GsonBuilder().serializeNulls().create()))
+                else
+                    addConverterFactory(GsonConverterFactory.create())
+
+            }
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(CLIENT)
             .build()
