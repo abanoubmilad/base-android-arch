@@ -38,7 +38,7 @@ class ApiBuilder(
         { chain: Interceptor.Chain ->
             val request = chain.request()
                 .newBuilder()
-            request.addHeader("Accept", "application/json")
+                .addHeader("Accept", "application/json")
                 .addHeader("User-Agent", "android")
                 .addHeader("app-version", appVersion)
                 .addHeader("os-version", Build.VERSION.RELEASE)
@@ -47,10 +47,7 @@ class ApiBuilder(
                         addHeader("Authorization", "$tokenPrefix$token")
                     }
                 }
-                .build()
-            val response = chain.proceed(request.build())
-
-            response
+            chain.proceed(request.build())
         }
     }
     /**
