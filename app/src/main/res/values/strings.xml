@@ -33,4 +33,18 @@
     <string name="cd_home">Home</string>
     <string name="cd_list">List</string>
     <string name="cd_form">Form</string>
+
+
+    <string-array name="array_education_levels">
+        <item>Less than High School</item>
+        <item>Some High School</item>
+        <item>HS Diploma/GED/HiSet</item>
+        <item>Vocational Certificate</item>
+        <item>Some College</item>
+        <item>Associates Degree</item>
+        <item>Bachelor’s Degree</item>
+        <item>Master’s Degree</item>
+        <item>Doctorate/Ph.D.</item>
+        <item>Certification</item>
+    </string-array>
 </resources>

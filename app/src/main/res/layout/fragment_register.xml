@@ -126,14 +126,14 @@
             app:layout_constraintTop_toBottomOf="@+id/signup_btn" />
 
         <Button
-            android:id="@+id/about_btn_clear_top"
+            android:id="@+id/about_dialog"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:background="@drawable/rounded_button"
             android:padding="20dp"
-            android:text="go to about 1 with clear top"
+            android:text="open dialog"
             android:textColor="@color/colorAccent"
             android:textSize="18sp"
             android:textStyle="bold"

@@ -2,5 +2,7 @@
     <string name="app_name">base-arch-android</string>
     <string name="base_arch_module_check_connection">Please check your connection and try again.</string>
     <string name="base_arch_module_crop_label">Move and Scale</string>
+    <string name="base_arch_module_dialog_positive_button">OK</string>
+    <string name="base_arch_module_dialog_negative_button">Cancel</string>
 
 </resources>

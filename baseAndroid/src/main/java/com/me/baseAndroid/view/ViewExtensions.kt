@@ -20,6 +20,7 @@ import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.TextView
+import androidx.annotation.ArrayRes
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
@@ -31,6 +32,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
+import com.me.baseAndroid.R
 import com.me.baseAndroid.base.BaseViewModel
 
 
@@ -230,22 +232,16 @@ fun FragmentActivity.showDialog(
 
 fun FragmentActivity.showDialogSingleChoice(
     title: String? = null,
-    itemsArrayResourceId: Int,
+    @ArrayRes itemsArrayResourceId: Int,
     selectedIndex: Int = -1,
     onItemSelected: (Int) -> Unit
 ) {
-    var alertDialog: AlertDialog? = null
-    val builder: AlertDialog.Builder = AlertDialog.Builder(this)
-
-    builder.setSingleChoiceItems(itemsArrayResourceId, selectedIndex) { dialog, item ->
-        onItemSelected(item)
-        dialog.dismiss()
-    }
-
-    if (title != null)
-        builder.setTitle(title)
-    alertDialog = builder.create()
-    alertDialog.show()
+    showDialogSingleChoice(
+        title,
+        resources.getStringArray(itemsArrayResourceId),
+        selectedIndex,
+        onItemSelected
+    )
 }
 
 fun FragmentActivity.showDialogSingleChoice(
@@ -254,18 +250,24 @@ fun FragmentActivity.showDialogSingleChoice(
     selectedIndex: Int = -1,
     onItemSelected: (Int) -> Unit
 ) {
-    var alertDialog: AlertDialog? = null
-    val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+    var selectedIndex = -1
+    val builder: AlertDialog.Builder = AlertDialog.Builder(this).apply {
 
-    builder.setSingleChoiceItems(items, selectedIndex) { dialog, item ->
-        onItemSelected(item)
-        dialog.dismiss()
+        setSingleChoiceItems(items, selectedIndex) { _, which -> selectedIndex = which }
+        setPositiveButton(R.string.base_arch_module_dialog_positive_button) { dialog, _ ->
+            dialog.dismiss()
+            if (selectedIndex >= 0 && selectedIndex < items.size) {
+                onItemSelected(selectedIndex)
+            }
+        }
+        setNegativeButton(R.string.base_arch_module_dialog_negative_button) { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        if (title != null)
+            setTitle(title)
     }
-
-    if (title != null)
-        builder.setTitle(title)
-    alertDialog = builder.create()
-    alertDialog.show()
+    builder.create().show()
 }
 
 @Suppress("DEPRECATION")

@@ -1,6 +1,8 @@
 package com.me.demo.formscreen
 
+import android.widget.Toast
 import com.me.baseAndroid.nav.NavFragment
+import com.me.baseAndroid.view.showDialogSingleChoice
 import com.me.demo.R
 import com.me.demo.homescreen.About
 import kotlinx.android.synthetic.main.fragment_register.*
@@ -22,11 +24,21 @@ class Register : NavFragment() {
 
         }
 
-        about_btn_clear_top.setOnClickListener {
-
+        about_dialog.setOnClickListener {
+            showEducationLevelDialog()
         }
     }
 
+
+    private fun showEducationLevelDialog() {
+        val items = resources.getStringArray(R.array.array_education_levels)
+        val selected = 2
+        activity?.showDialogSingleChoice("select edu level", items, selected) {
+            if (it < items.size) {
+                Toast.makeText(activity, items[it], Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
     override fun onVisible() {
 
