@@ -19,7 +19,7 @@ class AppLogger {
          * @param msg The message you would like logged.
          */
         fun d(tag: String, msg: String) {
-            if (BuildConfig.DEBUG)
+            if (debugMode)
                 Log.d(tag, msg)
         }
 
