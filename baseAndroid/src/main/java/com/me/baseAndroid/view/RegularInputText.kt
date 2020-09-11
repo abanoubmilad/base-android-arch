@@ -11,7 +11,6 @@ package com.me.baseAndroid.view
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
-import android.widget.EditText
 import com.me.baseAndroid.R
 
 /*
@@ -21,7 +20,8 @@ import com.me.baseAndroid.R
  *  * Last modified 5/1/20 11:05 PM
  *
  */
-open class RegularInputText(context: Context, attrs: AttributeSet) : EditText(context, attrs) {
+open class RegularInputText(context: Context, attrs: AttributeSet) :
+    androidx.appcompat.widget.AppCompatEditText(context, attrs) {
     private val STATE_ERROR = intArrayOf(R.attr.state_error)
     var hasError = false
         set(value) {
