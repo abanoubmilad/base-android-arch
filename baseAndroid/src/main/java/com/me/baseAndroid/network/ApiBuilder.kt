@@ -50,6 +50,7 @@ class ApiBuilder(
             chain.proceed(request.build())
         }
     }
+
     /**
      * Client initialization
      */
@@ -58,7 +59,9 @@ class ApiBuilder(
             .addInterceptor(interceptor)
             .apply {
                 if (debug)
-                    addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+                    addInterceptor(HttpLoggingInterceptor().apply {
+                        level = (HttpLoggingInterceptor.Level.BODY)
+                    })
             }
             .connectTimeout(HTTP_REQUEST_TIMEOUT.toLong(), TimeUnit.SECONDS)
             .readTimeout(HTTP_REQUEST_TIMEOUT.toLong(), TimeUnit.SECONDS)
@@ -71,20 +74,7 @@ class ApiBuilder(
      */
 
     fun <S> getRXApiInstance(apiInterfaceClass: Class<S>, baseUrl: String): S {
-        return Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .apply {
-                if (serlizeNulls)
-                    addConverterFactory(GsonConverterFactory.create(GsonBuilder().serializeNulls().create()))
-                else
-                    addConverterFactory(GsonConverterFactory.create())
-
-            }
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .client(CLIENT)
-            .build()
-            .create(apiInterfaceClass)
+        return getRXRetrofit(baseUrl).create(apiInterfaceClass)
     }
 
     fun getRXRetrofit(baseUrl: String): Retrofit {
@@ -92,7 +82,11 @@ class ApiBuilder(
             .baseUrl(baseUrl)
             .apply {
                 if (serlizeNulls)
-                    addConverterFactory(GsonConverterFactory.create(GsonBuilder().serializeNulls().create()))
+                    addConverterFactory(
+                        GsonConverterFactory.create(
+                            GsonBuilder().serializeNulls().create()
+                        )
+                    )
                 else
                     addConverterFactory(GsonConverterFactory.create())
 
