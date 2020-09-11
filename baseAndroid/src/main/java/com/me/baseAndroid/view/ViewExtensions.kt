@@ -14,12 +14,16 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
+import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.TextView
+import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LiveData
@@ -345,3 +349,41 @@ fun RecyclerView.onScrollBottom(callback: () -> Unit) {
         }
     })
 }
+
+
+fun Context?.inflateLayout(resId: Int): View? {
+    return LayoutInflater.from(this).inflate(
+        resId, null
+    )
+}
+
+fun Fragment.inflateLayout(resId: Int): View? {
+    return context.inflateLayout(resId)
+}
+
+fun FragmentActivity.inflateLayout(resId: Int): View? {
+    return inflateLayout(resId)
+}
+
+fun TextView.setTextOrGone(str: String?, vararg others: View) {
+    if (str.isNullOrBlank()) {
+        makeGone()
+        others.forEach { it.makeGone() }
+    } else {
+        text = str
+        makeVisible()
+        others.forEach { it.makeVisible() }
+    }
+}
+
+fun visibleCountOf(views: Sequence<View>): Int {
+    var count = 0
+    views.forEach { if (it.isVisible) count++ }
+    return count
+}
+
+fun Context.getContextCompatDrawable(@DrawableRes resId: Int) =
+    ContextCompat.getDrawable(this, resId)
+
+fun Fragment.getContextCompatDrawable(@DrawableRes resId: Int) =
+    activity?.getContextCompatDrawable(resId)
