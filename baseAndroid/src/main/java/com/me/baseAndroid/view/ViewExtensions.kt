@@ -250,14 +250,14 @@ fun FragmentActivity.showDialogSingleChoice(
     selectedIndex: Int = -1,
     onItemSelected: (Int) -> Unit
 ) {
-    var selectedIndex = -1
+    var newIndex = -1
     val builder: AlertDialog.Builder = AlertDialog.Builder(this).apply {
 
-        setSingleChoiceItems(items, selectedIndex) { _, which -> selectedIndex = which }
+        setSingleChoiceItems(items, selectedIndex) { _, which -> newIndex = which }
         setPositiveButton(R.string.base_arch_module_dialog_positive_button) { dialog, _ ->
             dialog.dismiss()
-            if (selectedIndex >= 0 && selectedIndex < items.size) {
-                onItemSelected(selectedIndex)
+            if (newIndex >= 0 && newIndex < items.size) {
+                onItemSelected(newIndex)
             }
         }
         setNegativeButton(R.string.base_arch_module_dialog_negative_button) { dialog, _ ->
