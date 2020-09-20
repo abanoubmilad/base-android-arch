@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/abanoubmilad/baseandroid.svg)](https://jitpack.io/#abanoubmilad/baseandroid)
+
 <h1 align="center">
 Base android 
 </h1>
@@ -33,7 +35,7 @@ Add to app level `build.gradle`
 ```Groovy
     dependencies {
 
-        implementation 'com.github.abanoubmilad:baseandroid:1.79'
+        implementation 'com.github.abanoubmilad:baseandroid:1.83'
         
     }
 ```
