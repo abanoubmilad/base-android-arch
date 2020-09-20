@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="base_arch_module_toolbar_text_size">@dimen/base_360_dim_16_sp</dimen>
+
     <dimen name="base_360_dim_100_dp">@dimen/_84sdp</dimen>
     <dimen name="base_360_dim_102_dp">@dimen/_85sdp</dimen>
     <dimen name="base_360_dim_103_dp">@dimen/_86sdp</dimen>

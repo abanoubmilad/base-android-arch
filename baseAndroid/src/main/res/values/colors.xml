@@ -6,4 +6,5 @@
     <color name="base_arch_module_cookiebar_error_grey">#D9D9D9</color>
     <color name="base_arch_module_cookiebar_error_red">#FF6C96</color>
     <color name="base_arch_module_cookiebar_text_color">#000000</color>
+    <color name="base_arch_module_toolbar_text_color">#000000</color>
 </resources>

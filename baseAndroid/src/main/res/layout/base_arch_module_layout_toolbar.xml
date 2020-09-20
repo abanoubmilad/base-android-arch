@@ -25,8 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
+        android:textColor="@color/base_arch_module_toolbar_text_color"
+        android:textSize="@dimen/base_arch_module_toolbar_text_size"
         android:textStyle="bold"
         tools:text="this this test" />
 
