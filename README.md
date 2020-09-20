@@ -35,7 +35,7 @@ Add to app level `build.gradle`
 ```Groovy
     dependencies {
 
-        implementation 'com.github.abanoubmilad:baseandroid:1.83'
+        implementation 'com.github.abanoubmilad:baseandroid:1.84'
         
     }
 ```
