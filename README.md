@@ -1,21 +1,19 @@
 [![](https://jitpack.io/v/abanoubmilad/baseandroid.svg)](https://jitpack.io/#abanoubmilad/baseandroid)
 
-<h1 align="center">
-Base android 
-</h1>
 
-<h2 align="center">
-A ready to use MVVM arch and network layer with common utils</h2>
+Base Architecture Android
+======
 
-MIT License
+A clean quick to use MVVM android architecture with extensions
 
-Copyright (c) 2020 Abanoub Milad Nassief Hanna\
+MIT License - Copyright (c) 2020 Abanoub Milad Nassief Hanna\
 abanoubcs@gmail.com\
 [@Linkedin](https://www.linkedin.com/in/abanoubmilad/)\
 [@Github](https://github.com/abanoubmilad)
 
 
-## How to add
+How to add
+==========
 
 Add to project level `build.gradle`
 
@@ -25,7 +23,7 @@ allprojects {
     repositories {
 
         maven { url "https://jitpack.io" }
-        
+
     }
 }
 ```
@@ -35,7 +33,7 @@ Add to app level `build.gradle`
 ```Groovy
     dependencies {
 
-        implementation 'com.github.abanoubmilad:baseandroid:1.84'
-        
+        implementation 'com.github.abanoubmilad:baseandroid:1.90'
+
     }
 ```
