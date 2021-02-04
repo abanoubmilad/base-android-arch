@@ -1,9 +1,7 @@
 package com.me.demo.homescreen
 
-import com.me.baseAndroid.nav.NavFragment
 import com.me.baseAndroid.view.getPrivateViewModel
 import com.me.demo.R
-import kotlinx.android.synthetic.main.fragment_about2.*
 
 /**
  * Shows "About"

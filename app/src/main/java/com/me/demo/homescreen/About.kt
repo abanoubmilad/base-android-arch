@@ -4,13 +4,9 @@ import android.content.Intent
 import android.graphics.Color
 import com.me.baseAndroid.cropper.PhotoCropperActivity
 import com.me.baseAndroid.cropper.PhotoCropperConfig
-import com.me.baseAndroid.nav.NavFragment
 import com.me.baseAndroid.view.getPrivateViewModel
-import com.me.baseAndroid.view.highLightKeyword
-import com.me.baseAndroid.view.startUrlIntent
 import com.me.demo.BuildConfig
 import com.me.demo.R
-import kotlinx.android.synthetic.main.fragment_about.*
 
 /**
  * Shows "About"

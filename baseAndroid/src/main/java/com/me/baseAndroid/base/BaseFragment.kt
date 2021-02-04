@@ -1,18 +1,16 @@
 package com.me.baseAndroid.base
 
 import android.content.Context
-import android.os.Bundle
 import android.text.TextWatcher
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.me.baseAndroid.R
+import com.me.baseAndroid.common.ITextWatcher
+import org.abanoubmilad.labyrinth.NavFragment
 
 /*
  * *
@@ -21,25 +19,11 @@ import com.me.baseAndroid.R
  *  * Last modified 5/1/20 11:05 PM
  *
  */
-abstract class BaseFragment : Fragment(), ITextWatcher {
+abstract class BaseFragment : NavFragment(),
+    ITextWatcher {
     override val watchMap: HashMap<EditText, TextWatcher> by lazy {
         hashMapOf<EditText, TextWatcher>()
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = buildRootView(inflater, container)
-
-    open fun buildRootView(
-        inflater: LayoutInflater,
-        container: ViewGroup?
-    ): View {
-        return inflater.inflate(layoutId, container, false)
-    }
-
-    abstract val layoutId: Int
 
     fun showToast(msg: String) {
         activity?.let {
@@ -97,14 +81,6 @@ abstract class BaseFragment : Fragment(), ITextWatcher {
                 .showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
         }
     }
-
-    fun getStringArgumentDefaultEmpty(tag: String) = arguments?.getString(tag) ?: ""
-
-    fun getBooleanArgumentDefault(tag: String, default: Boolean) =
-        arguments?.getBoolean(tag, default) ?: default
-
-    fun getIntArgumentDefault(tag: String, default: Int) =
-        arguments?.getInt(tag, default) ?: default
 
     open fun listenToMessagesOf(viewModel: BaseViewModel) {
         viewModel.info.observe(viewLifecycleOwner, Observer {

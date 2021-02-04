@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.me.baseAndroid.R
+import com.me.baseAndroid.common.ITextWatcher
 import org.aviran.cookiebar2.CookieBar
 
 /*
@@ -20,7 +21,8 @@ import org.aviran.cookiebar2.CookieBar
  *  * Last modified 5/1/20 11:05 PM
  *
  */
-abstract class BaseActivity : AppCompatActivity(), ITextWatcher {
+abstract class BaseActivity : AppCompatActivity(),
+    ITextWatcher {
     override val watchMap: HashMap<EditText, TextWatcher> by lazy {
         hashMapOf<EditText, TextWatcher>()
     }

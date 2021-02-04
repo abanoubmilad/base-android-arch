@@ -1,4 +1,4 @@
-package com.me.baseAndroid.nav
+package com.me.baseAndroid.toolbar
 
 import android.os.Bundle
 import com.me.baseAndroid.base.ConnectifyActivity

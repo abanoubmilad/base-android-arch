@@ -1,15 +1,10 @@
 package com.me.baseAndroid.base
 
 import android.view.View
-import androidx.annotation.CallSuper
 import androidx.annotation.IdRes
-import androidx.databinding.Observable
-import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.me.baseAndroid.network.SingleLiveEvent
-import io.reactivex.disposables.CompositeDisposable
+import org.abanoubmilad.nut.SingleLiveEvent
 
 /*
  * *
@@ -18,18 +13,7 @@ import io.reactivex.disposables.CompositeDisposable
  *  * Last modified 5/1/20 11:05 PM
  *
  */
-open class BaseViewModel : ViewModel(), Isync, IObserve {
-    companion object {
-        var appNetworkFailureCallBack: (() -> Unit)? = null
-    }
-
-    override var networkFailureCallBack = appNetworkFailureCallBack
-
-    override val disposable = CompositeDisposable()
-
-    override val observablesMap by lazy {
-        hashMapOf<ObservableField<*>, Observable.OnPropertyChangedCallback>()
-    }
+open class BaseViewModel : org.abanoubmilad.nut.BaseViewModel() {
 
     private val _message =
         SingleLiveEvent<@IdRes Int>()
@@ -62,12 +46,5 @@ open class BaseViewModel : ViewModel(), Isync, IObserve {
     fun visibleOrGone(visible: Boolean): Int {
         return if (visible) View.VISIBLE else View.GONE
     }
-
-    @CallSuper
-    override fun onCleared() {
-        disposeIsync()
-        disposeIObserve()
-    }
-
 
 }

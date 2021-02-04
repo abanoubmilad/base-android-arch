@@ -1,4 +1,4 @@
-package com.me.baseAndroid.base
+package com.me.baseAndroid.common
 
 import android.text.Editable
 import android.text.TextWatcher

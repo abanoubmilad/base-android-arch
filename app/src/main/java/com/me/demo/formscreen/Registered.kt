@@ -1,6 +1,5 @@
 package com.me.demo.formscreen
 
-import com.me.baseAndroid.nav.NavFragment
 import com.me.demo.R
 
 /**

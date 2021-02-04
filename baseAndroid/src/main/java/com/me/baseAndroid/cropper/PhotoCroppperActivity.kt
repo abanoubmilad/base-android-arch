@@ -15,7 +15,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.me.baseAndroid.R
-import com.me.baseAndroid.nav.ToolbarActivity
+import com.me.baseAndroid.toolbar.ToolbarActivity
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.back_arch_module_photo_cropper_activity.*

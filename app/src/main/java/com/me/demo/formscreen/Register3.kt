@@ -1,9 +1,7 @@
 package com.me.demo.formscreen
 
-import com.me.baseAndroid.nav.NavFragment
 import com.me.demo.R
 import com.me.demo.homescreen.Title
-import kotlinx.android.synthetic.main.fragment_register.*
 
 
 /**

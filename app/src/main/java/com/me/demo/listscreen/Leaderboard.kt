@@ -7,11 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
-import com.me.baseAndroid.nav.INav
-import com.me.baseAndroid.nav.NavFragment
 import com.me.baseAndroid.view.activity
 import com.me.demo.R
-import kotlinx.android.synthetic.main.fragment_leaderboard.*
 
 /**
  * Shows a static leaderboard with multiple users.

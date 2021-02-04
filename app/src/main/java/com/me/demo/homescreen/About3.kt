@@ -1,6 +1,5 @@
 package com.me.demo.homescreen
 
-import com.me.baseAndroid.nav.NavFragment
 import com.me.demo.R
 
 /**

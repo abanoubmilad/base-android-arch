@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
 
-    <com.me.baseAndroid.view.ToolbarView
+    <com.me.baseAndroid.toolbar.view.ToolbarView
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

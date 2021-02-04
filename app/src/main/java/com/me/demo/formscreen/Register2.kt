@@ -1,11 +1,7 @@
 package com.me.demo.formscreen
 
-import androidx.core.content.ContextCompat
-import com.google.android.material.snackbar.Snackbar
-import com.me.baseAndroid.nav.NavFragment
 import com.me.demo.R
 import com.me.demo.homescreen.Title
-import kotlinx.android.synthetic.main.fragment_register.*
 
 
 /**

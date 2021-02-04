@@ -1,11 +1,8 @@
 package com.me.demo.formscreen
 
 import android.widget.Toast
-import com.me.baseAndroid.nav.NavFragment
-import com.me.baseAndroid.view.showDialogSingleChoice
 import com.me.demo.R
 import com.me.demo.homescreen.About
-import kotlinx.android.synthetic.main.fragment_register.*
 
 
 /**

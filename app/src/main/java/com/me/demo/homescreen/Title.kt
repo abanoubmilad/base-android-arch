@@ -1,8 +1,6 @@
 package com.me.demo.homescreen
 
-import com.me.baseAndroid.nav.NavFragment
 import com.me.demo.R
-import kotlinx.android.synthetic.main.fragment_title.*
 
 /**
  * Shows the main title screen with a button that navigates to [About].

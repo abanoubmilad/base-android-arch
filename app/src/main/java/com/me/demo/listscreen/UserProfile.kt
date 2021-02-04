@@ -1,9 +1,7 @@
 package com.me.demo.listscreen
 
-import com.me.baseAndroid.nav.NavFragment
 import com.me.demo.R
 import com.me.demo.listscreen.MyAdapter.Companion.USERNAME_KEY
-import kotlinx.android.synthetic.main.fragment_user_profile.*
 
 
 /**

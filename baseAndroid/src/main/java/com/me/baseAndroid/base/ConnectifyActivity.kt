@@ -2,7 +2,7 @@ package com.me.baseAndroid.base
 
 import android.os.Bundle
 import com.me.baseAndroid.R
-import com.me.baseAndroid.view.isInternetAvailable
+import com.me.baseAndroid.extentions.isInternetAvailable
 import com.novoda.merlin.Merlin
 
 /*
