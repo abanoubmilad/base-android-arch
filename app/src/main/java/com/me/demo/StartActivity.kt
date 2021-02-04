@@ -1,6 +1,5 @@
 package com.me.demo
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_start.*
@@ -12,7 +11,7 @@ class StartActivity : AppCompatActivity() {
 
 
         multinav.setOnClickListener {
-            startActivity(Intent(this, MainActivityMultiFull::class.java))
+
         }
     }
 
