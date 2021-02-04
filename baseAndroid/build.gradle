@@ -15,7 +15,6 @@ apply plugin: 'maven-publish'
 
 def libraryGroupId = 'com.github.abanoubmilad'
 def libraryArtifactId = 'baseAndroid'
-def libraryVersion = '1.84'
 
 android {
     compileSdkVersion 29

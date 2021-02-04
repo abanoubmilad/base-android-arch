@@ -96,6 +96,18 @@ class ToolbarView @JvmOverloads constructor(
 
             }
 
+            val resourceContentDescriptionLeftButton = typedArray
+                .getResourceId(
+                    R.styleable
+                        .ToolbarView_contentDescriptionLeftButton, 0
+                )
+
+            iv_left.contentDescription =
+                if (resourceContentDescriptionLeftButton == 0) typedArray.getString(
+                    R.styleable
+                        .ToolbarView_contentDescriptionLeftButton
+                ) else resources.getText(resourceContentDescriptionLeftButton)
+
             typedArray.recycle()
         }
     }

@@ -7,6 +7,7 @@
         <attr name="textColor" format="reference" />
         <attr name="barColor" format="reference" />
         <attr name="title" format="string" />
+        <attr name="contentDescriptionLeftButton" format="string" />
     </declare-styleable>
 
     <declare-styleable name="InputText">
