@@ -68,7 +68,7 @@ dependencies {
 
 
     // network
-    implementation 'com.github.abanoubmilad:nut:0.51'
+    implementation 'com.github.abanoubmilad:nut:0.54'
 
     // navigation
     implementation 'com.github.abanoubmilad:router:0.71'
