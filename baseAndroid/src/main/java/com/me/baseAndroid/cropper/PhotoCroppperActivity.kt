@@ -33,7 +33,7 @@ import java.io.Serializable
  */
 class PhotoCropperConfig : Serializable {
 
-
+    var cropShape: CropImageView.CropShape = CropImageView.CropShape.OVAL
     var authority: String? = null
     var openCameraOnly: Boolean = false
     var openChooserOnly: Boolean = false
@@ -103,7 +103,7 @@ class PhotoCropperActivity : ToolbarActivity() {
         uriToCrop = intent.getParcelableExtra<Uri>(URI_TO_CROP)
 
         cropImageView.setAspectRatio(1, 1)
-        cropImageView.cropShape = CropImageView.CropShape.OVAL
+        cropImageView.cropShape = config?.cropShape ?: CropImageView.CropShape.OVAL
 
         cropImageView.isAutoZoomEnabled = false
 
