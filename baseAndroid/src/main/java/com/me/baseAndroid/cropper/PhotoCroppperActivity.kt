@@ -48,6 +48,8 @@ class PhotoCropperConfig : Serializable {
 
     var minWindowWidth: Int? = defaultMinWindowWidth
 
+    var disableCropping: Boolean = false
+
     companion object {
         const val defaultWidth = 1000
         const val defaultQuality = 90
@@ -144,11 +146,7 @@ class PhotoCropperActivity : ToolbarActivity() {
         cropImageView.setOnCropImageCompleteListener { _, result ->
             val resultCode =
                 if (result.error == null) Activity.RESULT_OK else Activity.RESULT_CANCELED
-            val intent = Intent()
-            intent.putExtras(getIntent())
-            intent.putExtra(EXTRA_RESULT, result.uri)
-            setResult(resultCode, intent)
-            finish()
+            returnIntentResult(result.uri, resultCode)
         }
         cropImageView.setOnSetImageUriCompleteListener { _, _, error ->
             if (error == null) {
@@ -171,6 +169,17 @@ class PhotoCropperActivity : ToolbarActivity() {
         cropImageView.guidelines = CropImageView.Guidelines.ON
         cropImageView.setMultiTouchEnabled(true)
 
+    }
+
+    private fun returnIntentResult(
+        uri: Uri?,
+        resultCode: Int
+    ) {
+        val intent = Intent()
+        intent.putExtras(getIntent())
+        intent.putExtra(EXTRA_RESULT, uri)
+        setResult(resultCode, intent)
+        finish()
     }
 
 
@@ -305,9 +314,17 @@ class PhotoCropperActivity : ToolbarActivity() {
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == CODE_CHOOSER) {
                 val uri = CropImage.getPickImageResultUri(this, data)
-                cropImageView.setImageUriAsync(uri)
+                if (config?.disableCropping == true) {
+                    returnIntentResult(uri, Activity.RESULT_OK)
+                } else {
+                    cropImageView.setImageUriAsync(uri)
+                }
             } else if (requestCode == CODE_CAMERA) {
-                cropImageView.setImageUriAsync(outputUri)
+                if (config?.disableCropping == true) {
+                    returnIntentResult(outputUri, Activity.RESULT_OK)
+                } else {
+                    cropImageView.setImageUriAsync(outputUri)
+                }
             }
         } else {
             cancel()
